@@ -1,0 +1,41 @@
+{
+  "name": "movie",
+  "version": "1.0.0",
+  "description": "复习一下",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangpf19920217/movie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangpf19920217/movie/issues"
+  },
+  "homepage": "https://github.com/wangpf19920217/movie#readme",
+  "dependencies": {
+    "babel-loader": "^7.1.1",
+    "express": "^4.15.3",
+    "opn": "^5.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^5.8.38",
+    "css-loader": "^0.28.4",
+    "vue-hot-reload-api": "^2.1.0",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.0.2",
+    "vue-style-loader": "^3.0.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-hot-middleware": "^2.18.2"
+  }
+}
