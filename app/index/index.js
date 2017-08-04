@@ -1,5 +1,5 @@
 import Vue from 'Vue'
-import Favlist from './components/favlist'
+import Favlist from './components/Favlist'
 
 new Vue({
     el: 'body',
