@@ -10288,7 +10288,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\nhtml{\n    background: red;\n}\n", ""]);
+exports.push([module.i, "\nhtml{\n}\n", ""]);
 
 // exports
 
@@ -10737,6 +10737,10 @@ module.exports = function normalizeComponent (
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data() {
@@ -10752,11 +10756,15 @@ module.exports = function normalizeComponent (
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
+  return _c('div', [_c('ul', {
+    attrs: {
+      "id": "example-1"
+    }
+  }, _vm._l((10), function(item) {
+    return _c('li', [_vm._v("\n\t\t    " + _vm._s(_vm.msg) + "\n\t\t  ")])
+  }))])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', [_vm._v("div")])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

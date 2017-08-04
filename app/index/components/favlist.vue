@@ -1,6 +1,10 @@
 <template>
     <div>
-    	<div>div</div>
+    	<ul id="example-1">
+		  <li v-for="item in 10">
+		    {{ msg }}
+		  </li>
+		</ul>
     </div>
 </template>
 
@@ -16,6 +20,6 @@
 
 <style>
     html{
-        background: red;
+    	
     }
-</style>
+ </style>
