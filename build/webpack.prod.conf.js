@@ -13,7 +13,7 @@ var webpack = require('webpack');
 var config = require('./webpack.config');
 
 
-
+config.output.publicPath = 'static/';
 //https://vue-loader.vuejs.org/zh-cn/configurations/extract-css.html 
 //将 .vue里的css 提取出来
 config.module.rules =  [

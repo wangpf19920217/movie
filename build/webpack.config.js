@@ -13,7 +13,7 @@ module.exports = {
     output: {
         // 输出路径是 myProject/output/static
         path: path.resolve(__dirname, '../output/static'),
-        publicPath: 'static/',
+        publicPath: '/',
         filename: 'build.js',
         chunkFilename: '[id].[chunkhash].js'
     }, 
@@ -29,13 +29,17 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.js$/, // babel 转换为兼容性的 js
+                test: /\.js$/, // babel 转换为兼容性的 js ES6
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['latest']
                 }
-            }
+            },
+            {
+	            test: /\.(png|jpg)$/,
+	            loader: 'url-loader?limit=10000&name=img/[name][hash:8].[ext]'
+	        }
         ]
     },
     plugins: [
@@ -46,3 +50,4 @@ module.exports = {
         })
     ]
 }
+

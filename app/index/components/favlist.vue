@@ -20,6 +20,6 @@
 
 <style>
     body{
-    	background: wheat;
+    	/*background: url('1.jpg') no-repeat;*/
     }
  </style>
