@@ -19,5 +19,7 @@
 </script>
 
 <style>
-    
+    body{
+    	background: wheat;
+    }
  </style>
