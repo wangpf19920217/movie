@@ -4,7 +4,8 @@
   "description": "复习一下",
   "main": "app.js",
   "scripts": {
-    "dev": "node build/dev-server.js",
+	"start": "node_modules/.bin/webpack-dev-server --inline",
+    "dev": "node build/express-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
