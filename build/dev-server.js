@@ -2,19 +2,19 @@ var opn = require('opn');//开启浏览器并进入指定url
 var path = require('path'); //路径工具
 var express = require('express'); //利用express开启服务
 var webpack = require('webpack');// 打包编译工具
-var config = require('./webpack.config');
+var config = require('./webpack.dev.conf');
 
 var app = express();
 
 // 调用webpack并把配置传递过去
 var compiler = webpack(config)
 
-// 使用 webpack-dev-middleware 中间件
+// 使用 webpack-dev-middleware 中间件  将打包好的脚本写在内存中
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: config.output.publicPath,  
     stats: {
         colors: true,
-        chunks: false
+        chunks: true
     }
 })
 

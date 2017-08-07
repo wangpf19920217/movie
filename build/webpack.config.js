@@ -9,7 +9,7 @@ module.exports = {
     output: {
         // 输出路径是 myProject/output/static
         path: path.resolve(__dirname, '../output/static'),
-        publicPath: 'static/',
+        publicPath: '/',
         filename: 'build.js',
         chunkFilename: '[id].[chunkhash].js'
     }, 
@@ -36,7 +36,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: 'app/index/index.html',
             template: path.resolve(__dirname, '../app/index/index.html'),
             inject: true
         })
