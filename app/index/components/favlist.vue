@@ -1,7 +1,7 @@
 <template>
     <div>
     	<ul id="example-1">
-		  <li v-for="item in 15">
+		  <li v-for="item in 25">
 		    {{ msg }}
 		  </li>
 		</ul>

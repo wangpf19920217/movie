@@ -34,8 +34,8 @@ server.listen(8080);
 
 
 //// 注册中间件
-//app.use(devMiddleware);
-//app.use(hotMiddleware);
+app.use(devMiddleware);
+app.use(hotMiddleware);
 
 
 

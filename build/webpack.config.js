@@ -1,6 +1,10 @@
 // nodejs 中的path模块
 var path = require('path');
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');//引入htmlwebpack
+
+//webpack --display-modules --display-chunks --config build/webpack.config.js 打包模式
+// dev-conf 开发模式
 
 module.exports = {
     // 入口文件，path.resolve()方法，可以结合我们给定的两个参数最后生成绝对路径，最终指向的就是我们的index.js文件

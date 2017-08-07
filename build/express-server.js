@@ -1,7 +1,7 @@
 // 引入必要的模块
 var express = require('express')
 var webpack = require('webpack')
-var config = require('./webpack.dev.conf')
+var config = require('./webpack.dev.conf');
 
 // 创建一个express实例
 var app = express()
@@ -18,8 +18,12 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
     }
 })
 
+// 使用 webpack-hot-middleware 中间件  热更新配合上面的插件来 比较文件变化 
+ var hotMiddleware = require('webpack-hot-middleware')(compiler)
+
 // 注册中间件
-app.use(devMiddleware)
+app.use(devMiddleware);
+app.use(hotMiddleware);
 
 
 // 监听 8888端口，开启服务器

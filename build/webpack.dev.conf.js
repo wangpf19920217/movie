@@ -17,8 +17,13 @@ var config = require('./webpack.config');
 
 
 config.output.publicPath = '/';
-
+config.entry = ['webpack-hot-middleware/client', path.resolve(__dirname, '../app/index/index.js')];
 config.plugins = [
+	//webpack.optimize.OccurenceOrderPlugin is not a constructor
+	//此问题一般出现在webpack 2中，解决办法很简单，将OccurenceOrderPlugin改为OccurrenceOrderPlugin即可。
+	new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
         filename: 'app/index/index.html',
         template: path.resolve(__dirname, '../app/index/index.html'),
