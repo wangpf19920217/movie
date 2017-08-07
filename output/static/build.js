@@ -10288,7 +10288,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\nhtml{\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -10760,7 +10760,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "id": "example-1"
     }
-  }, _vm._l((15), function(item) {
+  }, _vm._l((25), function(item) {
     return _c('li', [_vm._v("\n\t\t    " + _vm._s(_vm.msg) + "\n\t\t  ")])
   }))])
 }

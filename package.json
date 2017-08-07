@@ -4,8 +4,9 @@
   "description": "复习一下",
   "main": "app.js",
   "scripts": {
-	"start": "node_modules/.bin/webpack-dev-server --inline",
+    "start": "node_modules/.bin/webpack-dev-server --inline",
     "dev": "node build/express-server.js",
+    "build": "webpack --display-modules --display-chunks --config build/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +34,7 @@
     "babel-runtime": "^5.8.38",
     "css-loader": "^0.28.4",
     "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.30.1",
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",

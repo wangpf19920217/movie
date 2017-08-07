@@ -19,7 +19,5 @@
 </script>
 
 <style>
-    html{
-    	
-    }
+    
  </style>
