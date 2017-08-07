@@ -2,36 +2,31 @@ var opn = require('opn');//开启浏览器并进入指定url
 var path = require('path'); //路径工具
 var express = require('express'); //利用express开启服务
 var webpack = require('webpack');// 打包编译工具
+var config = require('./webpack.config');
 
-var webpackConfig  = require('./webpack.dev.conf');
-var compiler = webpack(webpackConfig); //热更新中间件
+var app = express();
 
-var app = express();  //开启服务
-var port = 8080;
-// 配置文件中 是否自动打开浏览器
-var autoOpenBrowser = !!config.dev.autoOpenBrowser;
-var proxy: {
-	  "/": {
-	    target: "localhost:"+port
-	  }
-	} 
+// 调用webpack并把配置传递过去
+var compiler = webpack(config)
 
-var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {
-  	 noInfo: true
-  }
+// 使用 webpack-dev-middleware 中间件
+var devMiddleware = require('webpack-dev-middleware')(compiler, {
+    publicPath: config.output.publicPath,
+    stats: {
+        colors: true,
+        chunks: false
+    }
 })
 
-app.use('./',(req,res)=>{
-	console.log(req);
-	console.log(res)
-});
-// 拼接 static 文件夹的静态资源路径
-//var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-// 静态文件服务
-//app.use(staticPath, express.static('./static'));
 
-//// 编译成功后打印网址信息
-//devMiddleware.waitUntilValid(function () {
-//console.log('> Listening at ' + uri + '\n')
-//})
+// 注册中间件
+app.use(devMiddleware);
+
+// 监听 8888端口，开启服务器
+app.listen(8888, function (err) {
+    if (err) {
+        console.log(err)
+        return
+    }
+    console.log('Listening at http://localhost:8888')
+})

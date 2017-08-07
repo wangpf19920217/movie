@@ -1,0 +1,41 @@
+var opn = require('opn');//开启浏览器并进入指定url
+var path = require('path'); //路径工具
+var express = require('express'); //利用express开启服务
+var webpack = require('webpack');// 打包编译工具
+var config = require('./webpack.config');
+
+
+
+
+var webpackConfig  = require('./webpack.dev.conf');
+var compiler = webpack(webpackConfig); //热更新中间件
+
+var app = express();  //开启服务
+var port = 8080;
+// 配置文件中 是否自动打开浏览器
+var autoOpenBrowser = !!config.dev.autoOpenBrowser;
+var proxy: {
+	  "/": {
+	    target: "localhost:"+port
+	  }
+	} 
+
+var hotMiddleware = require('webpack-hot-middleware')(compiler, {
+  log: () => {
+  	 noInfo: true
+  }
+})
+
+app.use('./',(req,res)=>{
+	console.log(req);
+	console.log(res)
+});
+// 拼接 static 文件夹的静态资源路径
+//var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
+// 静态文件服务
+//app.use(staticPath, express.static('./static'));
+
+//// 编译成功后打印网址信息
+//devMiddleware.waitUntilValid(function () {
+//console.log('> Listening at ' + uri + '\n')
+//})
