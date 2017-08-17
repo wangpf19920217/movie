@@ -22,7 +22,19 @@ module.exports = {
          extensions: ['.js', '.vue']
     },
     module: {
-        loaders: [
+    	rules: [
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+		         "style",
+		         "style-loader",
+		         "css",
+		         "css-loader",
+		         "less",
+		         "less-loader",
+		        ]
+            },
             // 使用vue-loader 加载 .vue 结尾的文件
             {
                 test: /\.vue$/,
@@ -55,7 +67,8 @@ module.exports = {
 	            test: /\.(png|jpg)$/,
 	            loader: 'url-loader?limit=10000&name=img/[name][hash:8].[ext]'
 	        }
-        ]
+        ],
+        //loaders: [] 旧版本依旧有效  新版本支持链式写入
     },
     plugins: [
         new HtmlWebpackPlugin({

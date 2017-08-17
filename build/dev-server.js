@@ -30,6 +30,8 @@ var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
     contentBase:'app/index/index.html'
 });
+
+
 server.listen(8080);
 
 

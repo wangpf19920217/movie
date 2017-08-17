@@ -36,6 +36,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 
+
 // 监听 8888端口，开启服务器
 app.listen(8888, function (err) {
     if (err) {
@@ -45,4 +46,3 @@ app.listen(8888, function (err) {
     console.log('Listening at http://localhost:8888')
 })
 
-console.log('+++++++++++++++++++'+__dirname+'++++++++++++++++++++++++');
