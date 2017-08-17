@@ -1,6 +1,7 @@
 // nodejs 中的path模块
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');  //补全前缀的插件
 var HtmlWebpackPlugin = require('html-webpack-plugin');//引入htmlwebpack
 
 //webpack --display-modules --display-chunks --config build/webpack.config.js 打包模式
@@ -29,6 +30,20 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+	            test: /\.less$/,
+	            use: [{
+	                loader: "style-loader" // creates style nodes from JS strings
+	            }, {
+	                loader: "css-loader" // translates CSS into CommonJS
+	            }, {
+	                loader: "less-loader" // compiles Less to CSS
+	            },
+	            {
+	                loader: 'postcss-Loader' // 补全前缀的插件
+	            }
+	            ]
+	        },
+            {
                 test: /\.js$/, // babel 转换为兼容性的 js ES6
                 exclude: /node_modules/,
                 loader: 'babel-loader',
@@ -47,6 +62,11 @@ module.exports = {
             filename: '../index.html',
             template: path.resolve(__dirname, '../app/index/index.html'),
             inject: true
+        }),
+        new webpack.LoaderOptionsPlugin({ //浏览器加前缀
+            options: {
+                postcss: [require('autoprefixer')({browsers:['last 5 versions']})]
+            }
         })
     ]
 }

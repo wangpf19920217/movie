@@ -25,7 +25,7 @@ config.plugins = [
 	//此问题一般出现在webpack 2中，解决办法很简单，将OccurenceOrderPlugin改为OccurrenceOrderPlugin即可。
 	new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
         filename: 'app/index/index.html',
         template: path.resolve(__dirname, '../app/index/index.html'),
