@@ -1,32 +1,31 @@
 <template>
     <div class="cont">
 		<ul class="c_list">
-		  <li v-for="item in todos">
+		  <li v-for="item in todos" v-on:events>
 		    {{ item.text }}
 		  </li>
 		</ul>
-		<div>
-			{{ infos }}
+		<div class="c_info">
+			<div>
+				<InfoTitle></InfoTitle>
+				<InfoList></InfoList>
+			</div>
 		</div>
     </div>
 </template>
 
 <script>
-    export default {
-    	props: ['todos','infos'],
-        data () {
-            return {
-                msg: 'Hello World!'
-            }
-        },
-        created () {
-		   console.log(this.todos) 
-		   console.log(this.infos) 
-	    },
-  		methods: {
-  			
-	    }
-    }
+
+	import InfoList from './showcont'
+	import InfoTitle from './showtitle'
+	
+	export default{
+		components:{
+			InfoList,
+			InfoTitle
+		}
+	}
+    
 </script>
 
 <style lang="less">
@@ -45,12 +44,25 @@
 	    	padding: 15px 0 ;
 	    	box-sizing: border-box;
 	    	overflow-y: scroll;
-	    	width: 100px;
+    	    min-width: 100px;
+	    	border-right:1px solid red;
 	    	li{
 	    		height: 36px;
 	    		line-height: 36px;
 	    		text-align: center;
 	    		font-size: 13px;
+	    	}
+	    }
+	    .c_info{
+	    	flex: 1;
+    	    position: relative;
+		    padding-left: 10px;
+	    	background: wheat;
+	    	ul{
+	    		li{
+	    			display: block;
+	    			
+	    		}
 	    	}
 	    }
    }

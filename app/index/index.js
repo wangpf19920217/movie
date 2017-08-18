@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 //全家桶
 import Favlist from './components/Favlist'
 import Wheader from './components/Wheader'
+import Wfooter from './components/Wfooter'
 
 import axios from 'axios';
 import qs from 'qs';
@@ -15,57 +16,14 @@ import jsonp from 'jsonp';
 Vue.use(VueRouter); //vuerouter
 Vue.use(Vuex)
 
-
-const url = 'http://192.168.82.106:80/playdatabase/movie.php';
-var infolists ;
-axios.post(url)
-	.then(function(response) {
-		infolists = response
-	})
-	.catch(function(error) {
-		console.log(error);
-	});
-
-Vue.component('Favlist', {
-  props: ['todos'],
-})
-
-console.log(infolists)
 var vm = new Vue({
 	el: '#app',
 	components: {
 		Favlist,
 		Wheader,
-	},
-	data() {
-		return {
-			todolists: [{
-					text: '电影'
-				},
-				{
-					text: '电视'
-				},
-				{
-					text: '书籍'
-				},
-				{
-					text: '音乐'
-				},
-				{
-					text: '电影'
-				},
-				{
-					text: '电视'
-				},
-				{
-					text: '书籍'
-				}
-			],
-			infolists:infolists
-		}
+		Wfooter
 	}
 })
-
 /*
  如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。
  确实是如此——如果您的应用够简单，您最好不要使用 Vuex。

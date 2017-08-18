@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<a class="returnbtn">返回</a>
-		<h2>标题</h2>
+		<h2>{{ msg }}</h2>
 		<a class="Hlist">功能</a>
 	</header>
 </template>
@@ -10,7 +10,7 @@
     export default {
         data () {
             return {
-                msg: 'Hello World!'
+                msg: '接口测试'
             }
         }
     }

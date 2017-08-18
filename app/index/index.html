@@ -53,14 +53,22 @@
 			#app{
 				height: 100%;
 			}
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
+}
         </style>
     </head>
     <body>
         <!-- vue的组件以自定义标签的形式使用 -->
         <div id="app">
         	<wheader></wheader>
-        	<favlist :todos='todolists' :infos='infolists' ></favlist>
+        	<transition name="fade">
+        		<favlist></favlist>
+			</transition>
+        	<Wfooter></Wfooter>
         </div>
         <!--<a href="components/favlist.vue"></a>-->
     </body>
