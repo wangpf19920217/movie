@@ -1,7 +1,7 @@
 <template>
     <div class="cont">
 		<ul class="c_list">
-		  <li v-for="item in todos" v-on:events>
+		  <li v-for="item in todos" v-bind:class="{ active: item.isActive }" >
 		    {{ item.text }}
 		  </li>
 		</ul>
@@ -20,6 +20,32 @@
 	import InfoTitle from './showtitle'
 	
 	export default{
+		data() {
+			return {
+				todos: [{
+						text: '电影',
+						isActive:true
+					},
+					{
+						text: '电视',
+						isActive:''
+					},
+					{
+						text: '书籍',
+						isActive:''
+					},
+					{
+						text: '音乐',
+						isActive:''
+					}
+				]
+			}
+		},
+		methods: {
+		    addAcative: function () {
+		    	
+		    }
+		},
 		components:{
 			InfoList,
 			InfoTitle
@@ -51,6 +77,10 @@
 	    		line-height: 36px;
 	    		text-align: center;
 	    		font-size: 13px;
+	    		&.active{
+	    			background: wheat;
+	    			color: darkgoldenrod;
+	    		}
 	    	}
 	    }
 	    .c_info{
@@ -58,6 +88,7 @@
     	    position: relative;
 		    padding-left: 10px;
 	    	background: wheat;
+	    	overflow-y: scroll;
 	    	ul{
 	    		li{
 	    			display: block;
