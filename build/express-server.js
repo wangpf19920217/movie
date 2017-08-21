@@ -1,7 +1,8 @@
 // 引入必要的模块
 var express = require('express')
 var webpack = require('webpack')
-var config = require('./webpack.dev.conf');
+var config = require('./webpack.dev.conf')
+var GetDate = require('../data/movieinfo')
 
 // 创建一个express实例
 var app = express()
@@ -22,6 +23,9 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
  var hotMiddleware = require('webpack-hot-middleware')(compiler)
 
 
+
+
+
 // webpack插件，监听html文件改变事件
 compiler.plugin('compilation', function (compilation) {
     compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
@@ -34,6 +38,7 @@ compiler.plugin('compilation', function (compilation) {
 // 注册中间件
 app.use(devMiddleware);
 app.use(hotMiddleware);
+app.use(GetDate);
 
 
 // 监听 8888端口，开启服务器
