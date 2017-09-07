@@ -1,11 +1,14 @@
 // 引入必要的模块
 var express = require('express')
 var webpack = require('webpack')
+var path = require('path')
+var opn = require('opn');//开启浏览器并进入指定url
 var config = require('./webpack.dev.conf')
 var GetDate = require('../data/movieinfo')
-
+var router = express.Router();
 // 创建一个express实例
 var app = express()
+var post = 8888;
 
 // 调用webpack并把配置传递过去
 var compiler = webpack(config)
@@ -35,18 +38,18 @@ compiler.plugin('compilation', function (compilation) {
     })
 })
 
-// 注册中间件
 app.use(devMiddleware);
 app.use(hotMiddleware);
+app.use(router);
 app.use(GetDate);
 
-
 // 监听 8888端口，开启服务器
-app.listen(8888, function (err) {
+app.listen(post, function (err) {
     if (err) {
         console.log(err)
         return
     }
-    console.log('Listening at http://localhost:8888')
+    console.log('Listening at http://localhost:'+post)
+    opn('http://localhost:'+post+'/app/index/index.html');
 })
 

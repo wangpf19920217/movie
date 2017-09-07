@@ -1,8 +1,11 @@
 <template>
     <div class="cont">
 		<ul class="c_list">
-		  <li v-for="item in todos" v-bind:class="{ active: item.isActive }" >
-		    {{ item.text }}
+		  <li v-for="(value, key, index) in todos" 
+		  	  v-bind:class="{ active: value.isActive }" 
+		  	  v-on:click="addAcative(key)"
+		  >
+		    {{ value.text }}
 		  </li>
 		</ul>
 		<div class="c_info">
@@ -24,26 +27,29 @@
 			return {
 				todos: [{
 						text: '电影',
-						isActive:true
+						isActive:1
 					},
 					{
 						text: '电视',
-						isActive:''
+						isActive:0
 					},
 					{
 						text: '书籍',
-						isActive:''
+						isActive:0
 					},
 					{
 						text: '音乐',
-						isActive:''
+						isActive:0
 					}
 				]
 			}
 		},
 		methods: {
-		    addAcative: function () {
-		    	
+		    addAcative: function (idx) {
+		    	for(let x in this._data.todos){
+		    		this._data.todos[x].isActive=0;
+		    	}
+		    	this._data.todos[idx].isActive=1;
 		    }
 		},
 		components:{

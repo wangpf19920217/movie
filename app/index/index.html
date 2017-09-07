@@ -53,12 +53,12 @@
 			#app{
 				height: 100%;
 			}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
-  opacity: 0
-}
+			.fade-enter-active, .fade-leave-active {
+			  transition: opacity .5s
+			}
+			.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+			  opacity: 0
+			}
         </style>
     </head>
     <body>
@@ -70,6 +70,8 @@
 			</transition>
         	<Wfooter></Wfooter>
         </div>
+        <router-link  to="/foo"></router-link>
+       <!--<router-view>12312312312</router-view>-->
         <!--<a href="components/favlist.vue"></a>-->
     </body>
 </html>

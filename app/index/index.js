@@ -16,13 +16,28 @@ import jsonp from 'jsonp';
 Vue.use(VueRouter); //vuerouter
 Vue.use(Vuex)
 
+var router = [{
+  path: './app',
+  component: '1'
+}, {
+  path: '/list',
+  component: '2'
+}, {
+  path: '/detail',
+  component: '3'
+},{
+  path: '/project',
+  component: '4'
+}]
+
 var vm = new Vue({
-	el: '#app',
-	components: {
-		Favlist,
-		Wheader,
-		Wfooter
-	}
+	router,
+	el: '#app'
+//	components: {
+//		Favlist,
+//		Wheader,
+//		Wfooter
+//	}
 })
 /*
  如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。

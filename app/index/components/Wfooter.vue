@@ -1,9 +1,7 @@
 <template>
 	<footer class="footer">
 		<ul>
-			<li v-for="item in todos">
-				{{ item.text }}
-			</li>
+			<router-link v-for="item in todos" to="/foo">{{item.text}}</router-link>
 		</ul>
 	</footer>
 </template>
@@ -13,16 +11,16 @@
 		data() {
 			return {
 				todos: [{
-						text: '电影',
+						text: '首页',
 					},
 					{
-						text: '电视'
+						text: '圈子'
 					},
 					{
-						text: '书籍'
+						text: '发现'
 					},
 					{
-						text: '音乐'
+						text: '我'
 					}
 				]
 			}

@@ -11,7 +11,6 @@
 				
 				</dd>
 			</dl>
-			
 		</li>
 	</ul>
 	<ul v-else="response">
@@ -20,7 +19,6 @@
 </template>
 
 <script>
-	
 	import axios from 'axios';
 	const url = 'http://192.168.82.106:80/playdatabase/movie.php';
 		
@@ -34,10 +32,6 @@
         	let vthis = this;
         	axios.post(url)
 					.then(function(res) {
-						if(res.status == 200){
-							
-						}
-						console.error(res.data.subjects)
 						vthis.response=res.data.subjects;
 					})
 					.catch(function(error) {
